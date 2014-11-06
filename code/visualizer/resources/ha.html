@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="fuelux">
+<head lang="en">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Messaging Box</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stroll.css">
+    <link rel="stylesheet" href="example.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div id="main">
+                    <article>
+                        <ul id="content" class="twirl">
+
+                        </ul>
+                    </article>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+    <script src="//cdn.sockjs.org/sockjs-0.3.4.min.js"></script>
+    <script src="client.js"></script>
+    <script src="stroll.min.js"></script>
+    <script>
+        stroll.bind('#main ul');
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+kafkaconsumer:
+  build: kafka-consumer
+  command: bundle exec vertx run kafka_consumer.rb -cluster
+  working_dir: /usr/local/var/lib/vertx/kafka-consumer
+  volumes:
+    - .:/usr/local/var/lib/vertx:rw
+messagecleaner:
+  image: jansolo/vertx
+  command: runmod no.finn~message-cleaner~0.1.0 -ha
+  volumes:
+    - .:/usr/local/var/lib/vertx:rw
+messagefilter:
+  image: jansolo/vertx
+  command: run message-filter/filter_suite_deployer.js -cluster
+  volumes:
+    - .:/usr/local/var/lib/vertx:rw
+visualizer:
+  image: jansolo/vertx
+  command: run visualizer/visualizer.clj -cluster
+  volumes:
+    - .:/usr/local/var/lib/vertx:rw
+  ports:
+   - 8080:8080
